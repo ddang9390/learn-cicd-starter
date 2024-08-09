@@ -18,8 +18,7 @@ func TestGetAPIAuthFailure(t *testing.T) {
 
 func TestGetAPI(t *testing.T) {
 	req, _ := http.NewRequest(http.MethodGet, "http://", nil)
-	req.Header.Add("Authorization", "")
-	req.Header.Add("ApiKey", "test")
+	req.Header.Add("Authorization", "ApiKey test")
 
 	key, _ := GetAPIKey(req.Header)
 	if !reflect.DeepEqual(key, "test") {
